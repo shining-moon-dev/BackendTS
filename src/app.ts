@@ -16,8 +16,9 @@ mongoose.connect(process.env.DB_URI , () => {
   console.log('DB connection established')
 });
 
-const scheduledFetchData = new CronJob("*/1 * * * *", () => {
-  uniswapAllPairFetcher.fetchAllPairData(100, 1).then((res: QueryResult) => {
+// Cron Job for Every 30Mins
+const scheduledFetchData = new CronJob("*/30 * * * *", () => {
+  uniswapAllPairFetcher.fetchAllPairData(1000, 1).then((res: QueryResult) => {
     UniswapDumping.saveUniswapPairs(res.data)
   })        
 });

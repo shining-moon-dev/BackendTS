@@ -1,6 +1,7 @@
 import { UniswapItem } from "../models/UniswapItem";
 import { QueryResult, Pairs, Pair, Token0, Token1 } from "../interfaces/interface";
 
+// Save Returned Pair Data to MongoDB
 const saveUniswapPairs = async (param: Pairs) => {
     try {
         await Promise.all(
@@ -19,6 +20,7 @@ const saveUniswapPairs = async (param: Pairs) => {
 }
 
 const uniswapDumpService = async (req: any, res: any) => {
+    res.send("Uniswap")
 }
 
 export default {
